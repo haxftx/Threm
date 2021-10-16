@@ -1,0 +1,44 @@
+Termostat Inteligent: Optimizarea unei incalziri a unei locuinte
+prin analiza detaliata a sensorilor de temperatura.
+
+Pe prima linie se afla numarul de camere temperatura globala
+umiditatea globala si timestamp-ul de referinta
+Funtia TEMPERATURE seteaza o noua temperatura globala.
+Functia LIST afiseaza pentru camera cu numele respectiv ca parametru valorile
+temperaturilor din backets-rile dintre cei doi timpi ca parametru.Daca am
+valori care sunt din 2 zile diferit afisez pe cele din a 2-a zi apoi celalte
+de la sfarsitul zilei.
+Functia TRIGGR HEAT calculeaza ultima ora ca fiind ora de referinta si daca
+exista umiditate globala verifica relatia umiditatii fata de umiditatea globala
+, iar daca nu exista sau ar fi trebuit de pornit centrala merge si verifica
+relatia temperaturilor cu temperatura globala.
+Funtia OBSERVE si OBSERVEH adauga in datele sensorului o nou temperatura sau
+umiditate, gasind camera corespunzatoare si calculand ora adauga temperatura
+sau umiditatea vreficand un parametru fiind true pentru temperatura si false
+pentru umiditate.
+Classa In_Out contine metoda main si citeste creeaza locuinta si apeleaza
+funtiile implementate.
+Classa Date contine informatiile despre casa si implementeaz metodele:
+- add: adauga o camera
+- getCamera: returneaza o camera cu un id al device-l dat ca parametru
+  si funtiile de baza pentru implementarea temei.
+Classa Camera contine infomratiile despre o camera si implementeaza metodele:
+- getID_Device: returneaza id-l device-lui
+- getNume: returneaza numele camerei
+- getSuprafata: returneaza suprafata camerei
+- getMinTemp: returneaza temperatura minima de la o anumita ora
+- getMaxUmid: returenaza umiditatea maxima de la o anumita ora
+- add: adauga o noua temperatura sau umiditatea la o anumita ora
+- no_temp_ult_h: verifica daca exista temperaturi la o anumita ora
+- no_umid_ult_h: verifica daca exista temperaturi la o anumita ora
+- list: afiseaza temperaturile dintre 2 ore
+Classa Date_Sensor contine datele colectate de sensor si implementeaza metodele:
+- addTemp: adauga o noua temperatura si sorteaza temperaturile
+- addUmid: adauga o noua umiditate si sorteaza umiditatile
+- list_Temp: returneaza toate datele colectate ca temperaturi intr-un string
+- getMinTemp: returneaza prima temperatura din datele de temperaturi
+- getMaxUmid: returneaza ultima umiditate din datele de umiditati
+- lipsa_t_ult_h: verifica daca exista sau nu date cu temperaturi
+- lipsa_u_ult_h: verifica daca exista sau nu date cu umiditati
+Am ales sa folosesc implementarea cu ArrayList, deoarece consuma putin timp
+pentru inserare, funtia folosita mai des.
